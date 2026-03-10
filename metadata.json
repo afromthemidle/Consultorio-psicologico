@@ -1,0 +1,5 @@
+{
+  "name": "PsychoAssist",
+  "description": "A bilingual (English/Spanish) assistant for psychologists to manage sessions and analyze notes using AI.",
+  "requestFramePermissions": []
+}
