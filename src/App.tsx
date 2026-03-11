@@ -18,7 +18,7 @@ function AppContent() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex h-screen bg-[#F5F5F0] font-sans text-[#2C2C24] overflow-hidden">
+    <div className="flex h-screen bg-slate-50 font-sans text-slate-800 overflow-hidden">
       <Sidebar 
         activeTab={activeTab} 
         setActiveTab={(tab) => {
@@ -31,16 +31,16 @@ function AppContent() {
       
       <div className="flex-1 flex flex-col h-screen overflow-hidden w-full">
         {/* Mobile Header */}
-        <div className="md:hidden flex items-center justify-between bg-white border-b border-[#E8E4DB] p-4 shrink-0 z-20">
+        <div className="md:hidden flex items-center justify-between bg-white/80 backdrop-blur-md border-b border-slate-200 p-4 shrink-0 z-20 shadow-sm">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-[#5A5A40] flex items-center justify-center text-white font-serif font-bold text-lg">
+            <div className="w-8 h-8 rounded-full bg-teal-600 flex items-center justify-center text-white font-serif font-bold text-lg shadow-md shadow-teal-600/20">
               C
             </div>
-            <h1 className="font-serif text-xl font-semibold text-[#2C2C24] tracking-tight">
+            <h1 className="font-serif text-xl font-semibold text-slate-800 tracking-tight">
               PsychoAssist
             </h1>
           </div>
-          <button onClick={() => setIsSidebarOpen(true)} className="p-2 text-[#5A5A40] hover:bg-[#F4F1E8] rounded-lg transition-colors">
+          <button onClick={() => setIsSidebarOpen(true)} className="p-2 text-teal-600 hover:bg-teal-50 rounded-lg transition-colors">
             <Menu size={24} />
           </button>
         </div>

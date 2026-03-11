@@ -24,23 +24,23 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpe
       {/* Mobile Overlay */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-[#2C2C24]/20 backdrop-blur-sm z-40 md:hidden transition-opacity"
+          className="fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-40 md:hidden transition-opacity"
           onClick={() => setIsOpen(false)}
         />
       )}
       
       {/* Sidebar */}
-      <div className={`fixed md:static inset-y-0 left-0 z-50 w-72 md:w-64 bg-[#FDFBF7] border-r border-[#E8E4DB] flex flex-col pt-8 pb-6 px-4 transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
+      <div className={`fixed md:static inset-y-0 left-0 z-50 w-72 md:w-64 bg-white/90 backdrop-blur-xl border-r border-slate-200/60 shadow-2xl shadow-slate-200/50 md:shadow-none flex flex-col pt-8 pb-6 px-4 transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
         <div className="flex items-center justify-between mb-12 px-2">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-[#5A5A40] flex items-center justify-center text-white font-serif font-bold text-lg">
+            <div className="w-8 h-8 rounded-full bg-teal-600 flex items-center justify-center text-white font-serif font-bold text-lg shadow-md shadow-teal-600/30">
               C
             </div>
-            <h1 className="font-serif text-2xl font-semibold text-[#2C2C24] tracking-tight">
+            <h1 className="font-serif text-2xl font-semibold text-slate-800 tracking-tight">
               {t('appTitle')}
             </h1>
           </div>
-          <button className="md:hidden text-[#7A7A68] hover:bg-[#F4F1E8] p-1.5 rounded-lg transition-colors" onClick={() => setIsOpen(false)}>
+          <button className="md:hidden text-slate-500 hover:bg-slate-100 p-1.5 rounded-lg transition-colors" onClick={() => setIsOpen(false)}>
             <X size={20} />
           </button>
         </div>
@@ -53,10 +53,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpe
               <button
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-200 ${
                   isActive
-                    ? 'bg-[#EAE6DB] text-[#2C2C24] font-medium shadow-sm'
-                    : 'text-[#7A7A68] hover:bg-[#F4F1E8] hover:text-[#4A4A3A]'
+                    ? 'bg-teal-50 text-teal-700 font-medium shadow-sm shadow-teal-500/10'
+                    : 'text-slate-500 hover:bg-slate-50 hover:text-slate-700'
                 }`}
               >
                 <Icon size={20} strokeWidth={isActive ? 2.5 : 2} />
@@ -66,16 +66,16 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, isOpe
           })}
         </nav>
 
-        <div className="mt-auto pt-6 border-t border-[#E8E4DB]">
+        <div className="mt-auto pt-6 border-t border-slate-100">
           <button
             onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-            className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-[#7A7A68] hover:bg-[#F4F1E8] hover:text-[#4A4A3A] transition-all duration-200"
+            className="w-full flex items-center justify-between px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-50 hover:text-slate-700 transition-all duration-200"
           >
             <div className="flex items-center gap-3">
               <Languages size={20} />
               <span className="text-[15px]">{t('language')}</span>
             </div>
-            <span className="text-xs font-semibold uppercase tracking-wider bg-[#EAE6DB] px-2 py-1 rounded-md text-[#5A5A40]">
+            <span className="text-xs font-semibold uppercase tracking-wider bg-teal-50 px-2 py-1 rounded-md text-teal-700">
               {language}
             </span>
           </button>

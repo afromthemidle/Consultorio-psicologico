@@ -39,12 +39,12 @@ export const Dashboard: React.FC = () => {
     });
 
   return (
-    <div className="h-full overflow-y-auto bg-[#F5F5F0] p-6 md:p-10">
+    <div className="h-full overflow-y-auto bg-slate-50 p-6 md:p-10">
       <header className="mb-8 md:mb-12">
-        <h2 className="text-3xl md:text-4xl font-serif text-[#2C2C24] font-medium tracking-tight mb-2">
-          {t('welcomeBack')} <span className="italic text-[#5A5A40]">{settings.doctorName}</span>
+        <h2 className="text-3xl md:text-4xl font-serif text-slate-800 font-medium tracking-tight mb-2">
+          {t('welcomeBack')} <span className="italic text-teal-600">{settings.doctorName}</span>
         </h2>
-        <p className="text-[#7A7A68] text-base md:text-lg font-light">
+        <p className="text-slate-500 text-base md:text-lg font-light">
           {t('today')} is {new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}
         </p>
       </header>
@@ -53,30 +53,30 @@ export const Dashboard: React.FC = () => {
         {/* Upcoming Sessions */}
         <div className="lg:col-span-2">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-serif font-semibold text-[#2C2C24]">{t('upcomingSessions')}</h3>
-            <button className="text-sm font-medium text-[#5A5A40] hover:text-[#2C2C24] flex items-center gap-1 transition-colors">
+            <h3 className="text-xl font-serif font-semibold text-slate-800">{t('upcomingSessions')}</h3>
+            <button className="text-sm font-medium text-teal-600 hover:text-teal-700 flex items-center gap-1 transition-colors">
               {t('viewAll')} <ArrowRight size={16} />
             </button>
           </div>
           
           <div className="space-y-4">
             {upcomingSessions.length === 0 ? (
-              <div className="bg-white rounded-2xl p-8 text-center border border-[#E8E4DB] text-[#7A7A68]">
+              <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 text-center border border-white shadow-xl shadow-slate-200/40 text-slate-500">
                 {t('noSessionsYet')}
               </div>
             ) : (
               upcomingSessions.map((session) => (
-                <div key={session.id} className="bg-white rounded-2xl p-5 md:p-6 shadow-sm border border-[#E8E4DB] flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:shadow-md transition-shadow cursor-pointer group">
+                <div key={session.id} className="bg-white/80 backdrop-blur-xl rounded-3xl p-5 md:p-6 shadow-xl shadow-slate-200/40 border border-white flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:shadow-2xl hover:shadow-slate-200/60 transition-all cursor-pointer group hover:-translate-y-1">
                   <div className="flex items-center gap-4 md:gap-5">
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#F4F1E8] flex items-center justify-center text-[#5A5A40] shrink-0">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 shrink-0 shadow-inner">
                       <User size={20} className="md:w-6 md:h-6" />
                     </div>
                     <div>
-                      <h4 className="text-base md:text-lg font-medium text-[#2C2C24] group-hover:text-[#5A5A40] transition-colors">{session.patient}</h4>
-                      <p className="text-xs md:text-sm text-[#7A7A68] mt-0.5 md:mt-1">{session.type}</p>
+                      <h4 className="text-base md:text-lg font-medium text-slate-800 group-hover:text-teal-600 transition-colors">{session.patient}</h4>
+                      <p className="text-xs md:text-sm text-slate-500 mt-0.5 md:mt-1">{session.type}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-[#5A5A40] bg-[#FDFBF7] px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-[#EAE6DB] self-start sm:self-auto">
+                  <div className="flex items-center gap-2 text-teal-700 bg-teal-50/50 px-3 py-1.5 md:px-4 md:py-2 rounded-2xl border border-teal-100 self-start sm:self-auto">
                     <Clock size={14} className="md:w-4 md:h-4" />
                     <span className="font-medium text-xs md:text-sm">{session.time}</span>
                   </div>
@@ -89,12 +89,12 @@ export const Dashboard: React.FC = () => {
         {/* Recent Notes */}
         <div>
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-serif font-semibold text-[#2C2C24]">{t('recentNotes')}</h3>
+            <h3 className="text-xl font-serif font-semibold text-slate-800">{t('recentNotes')}</h3>
           </div>
           
-          <div className="bg-white rounded-3xl p-5 md:p-6 shadow-sm border border-[#E8E4DB]">
+          <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-5 md:p-6 shadow-xl shadow-slate-200/40 border border-white">
             {recentNotes.length === 0 ? (
-              <div className="text-center py-8 text-[#7A7A68]">
+              <div className="text-center py-8 text-slate-500">
                 {t('noNotesYet')}
               </div>
             ) : (
@@ -103,18 +103,18 @@ export const Dashboard: React.FC = () => {
                   {recentNotes.map((note) => (
                     <div key={note.id} className="group cursor-pointer">
                       <div className="flex items-center justify-between mb-2">
-                        <h4 className="font-medium text-[#2C2C24] group-hover:text-[#5A5A40] transition-colors">{note.patient}</h4>
-                        <span className="text-[10px] md:text-xs text-[#9A9A88] font-medium uppercase tracking-wider">{note.date}</span>
+                        <h4 className="font-medium text-slate-800 group-hover:text-teal-600 transition-colors">{note.patient}</h4>
+                        <span className="text-[10px] md:text-xs text-slate-400 font-medium uppercase tracking-wider">{note.date}</span>
                       </div>
-                      <p className="text-xs md:text-sm text-[#7A7A68] line-clamp-2 leading-relaxed">
+                      <p className="text-xs md:text-sm text-slate-500 line-clamp-2 leading-relaxed">
                         "{note.excerpt}"
                       </p>
-                      <div className="h-px bg-[#F4F1E8] mt-6 group-last:hidden"></div>
+                      <div className="h-px bg-slate-100 mt-6 group-last:hidden"></div>
                     </div>
                   ))}
                 </div>
                 
-                <button className="w-full mt-6 py-2.5 md:py-3 rounded-xl border border-[#EAE6DB] text-[#5A5A40] font-medium hover:bg-[#FDFBF7] transition-colors flex items-center justify-center gap-2 text-sm md:text-base">
+                <button className="w-full mt-6 py-2.5 md:py-3 rounded-2xl border border-slate-200 text-slate-600 font-medium hover:bg-slate-50 hover:text-teal-600 transition-colors flex items-center justify-center gap-2 text-sm md:text-base">
                   <FileText size={18} />
                   {t('viewAll')}
                 </button>
